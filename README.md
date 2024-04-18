@@ -35,7 +35,7 @@ A brief description of what this project does and who it's for
 | Parameters | Type     | Description                       |
 | :-------- | :------- | :--------------------------------- |
 | `name`      | `string` | **Required**. Nom de la personne |
-| `firstname`      | `string` | **Required**. Nom de la personne |
+| `firstname`      | `string` | **`Required`** Nom de la personne |
 
 
 #### Supprimer une personne
@@ -46,10 +46,10 @@ A brief description of what this project does and who it's for
 
 | Parameter | Type     | Description                       |
 | :-------- | :------- | :-------------------------------- |
-| `uuid`      | `string` | **Required**. uuid de la personne |
+| `uuid`      | `string` | `**Required**` uuid de la personne |
 
 
-### Mettre à jour une personne
+#### Mettre à jour une personne
 
 ```http
   PUT /localhost:9090/personnes/{uuid}
@@ -57,9 +57,9 @@ A brief description of what this project does and who it's for
 
 | Parameter | Type     | Description                       |
 | :-------- | :------- | :-------------------------------- |
-| `uuid`      | `string` | `**Required**`. uuid de la personne |
-| `name`      | `string` | **Required** Nom de la personne |
-| `firstname`      | `string` |  **Required** Nom de la personne |
+| `uuid`      | `string` | `**Required**` uuid de la personne |
+| `name`      | `string` | `**Required**` Nom de la personne |
+| `firstname`      | `string` |  `**Required**` Nom de la personne |
 
 
 #### Mettre à jour partiellement une personne
