@@ -148,3 +148,77 @@ A brief description of what this project does and who it's for
 | `adresse`      | `string` |  Adresse du stade |
 | `ville`      | `string` |  Ville du stade |
 | `capacite`      | `integer` | Capacité du stade |
+
+
+### 03- Epreuves
+
+#### Récupérer toutes les épreuves
+
+```http
+  GET /localhost:9090/epreuves
+```
+
+
+#### Récupérer une épreuve
+
+```http
+  GET /localhost:9090/epreuve/${uuid}
+```
+
+| Parameter | Type     | Description                       |
+| :-------- | :------- | :-------------------------------- |
+| `uuid`      | `string` | **`Required`** uuid de l'épreuve |
+
+
+#### Ajouter une épreuve
+
+```http
+  POST /localhost:9090/epreuve
+```
+
+| Parameters | Type     | Description                       |
+| :-------- | :------- | :--------------------------------- |
+| `name`      | `string` | **`Required`** Nom de l'épreuve |
+| `date`      | `date` | **`Required`** date de l'épreuve |
+| `stade`      | `stade` | **`Required`** Stade où l'épreuve à lieu |
+
+
+#### Supprimer une épreuve
+
+```http
+  DELETE /localhost:9090/epreuve/{uuid}
+```
+
+| Parameter | Type     | Description                       |
+| :-------- | :------- | :-------------------------------- |
+| `uuid`      | `string` | **`Required`** uuid de l'érpeuve |
+
+<!-- 
+#### Mettre à jour un stade
+
+```http
+  PUT /localhost:9090/stades/{uuid}
+```
+
+| Parameter | Type     | Description                       |
+| :-------- | :------- | :-------------------------------- |
+| `uuid`      | `string` | **`Required`** uuid du stade |
+| `name`      | `string` | **`Required`** Nom du stade |
+| `adresse`      | `string` |  **`Required`** Adresse du stade |
+| `ville`      | `string` |  **`Required`** Ville du stade |
+| `capacite`      | `integer` |  **`Required`** Capacité du stade |
+
+
+#### Mettre à jour partiellement un stade
+
+```http
+  PATCH /localhost:9090/stades/{uuid}
+```
+
+| Parameter | Type     | Description                       |
+| :-------- | :------- | :-------------------------------- |
+| `uuid`      | `string` | **`Required`** uuid du stade |
+| `name`      | `string` | Nom du stade |
+| `adresse`      | `string` |  Adresse du stade |
+| `ville`      | `string` |  Ville du stade |
+| `capacite`      | `integer` | Capacité du stade | -->

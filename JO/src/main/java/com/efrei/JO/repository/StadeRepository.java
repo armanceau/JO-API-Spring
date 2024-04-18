@@ -10,10 +10,10 @@ import java.util.Optional;
 @Repository
 public interface StadeRepository extends JpaRepository<Stade, String> {
 
-	// SELECT * from Personne where deleted_at is null
+	// SELECT * from Stade where deleted_at is null
 	List<Stade> findAllByDeletedAtNull();
 
-	// SELECT * FROM Student where uuid = ?
+	// SELECT * FROM Stade where uuid = ?
 	Optional<Stade> findOneByUuid(String uuid);
 
 	Stade save(Stade stade);

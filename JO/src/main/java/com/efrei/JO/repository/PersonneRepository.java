@@ -13,7 +13,7 @@ public interface PersonneRepository extends JpaRepository<Personne, String> {
 	// SELECT * from Personne where deleted_at is null
 	List<Personne> findAllByDeletedAtNull();
 
-	// SELECT * FROM Student where uuid = ?
+	// SELECT * FROM Personne where uuid = ?
 	Optional<Personne> findOneByUuid(String uuid);
 
 	Personne save(Personne personne);
