@@ -1,4 +1,9 @@
 
+# JO-API-Spring
+
+A brief description of what this project does and who it's for
+
+
 ## API Reference
 
 #### Récupérer toutes les personnes
@@ -29,4 +34,3 @@
 | :-------- | :------- | :--------------------------------- |
 | `name`      | `string` | **Required**. Nom de la personne |
 | `firstname`      | `string` | **Required**. Nom de la personne |
-
