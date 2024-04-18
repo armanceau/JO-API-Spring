@@ -118,3 +118,33 @@ A brief description of what this project does and who it's for
 | Parameter | Type     | Description                       |
 | :-------- | :------- | :-------------------------------- |
 | `uuid`      | `string` | **`Required`** uuid du stade |
+
+
+#### Mettre à jour un stade
+
+```http
+  PUT /localhost:9090/stades/{uuid}
+```
+
+| Parameter | Type     | Description                       |
+| :-------- | :------- | :-------------------------------- |
+| `uuid`      | `string` | **`Required`** uuid du stade |
+| `name`      | `string` | **`Required`** Nom du stade |
+| `adresse`      | `string` |  **`Required`** Adresse du stade |
+| `ville`      | `string` |  **`Required`** Ville du stade |
+| `capacite`      | `integer` |  **`Required`** Capacité du stade |
+
+
+#### Mettre à jour partiellement un stade
+
+```http
+  PATCH /localhost:9090/stades/{uuid}
+```
+
+| Parameter | Type     | Description                       |
+| :-------- | :------- | :-------------------------------- |
+| `uuid`      | `string` | **`Required`** uuid du stade |
+| `name`      | `string` | Nom du stade |
+| `adresse`      | `string` |  Adresse du stade |
+| `ville`      | `string` |  Ville du stade |
+| `capacite`      | `integer` | Capacité du stade |
