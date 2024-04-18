@@ -6,6 +6,8 @@ A brief description of what this project does and who it's for
 
 ## API Reference
 
+### 01- Personnes
+
 #### Récupérer toutes les personnes
 
 ```http
@@ -45,3 +47,48 @@ A brief description of what this project does and who it's for
 | Parameter | Type     | Description                       |
 | :-------- | :------- | :-------------------------------- |
 | `uuid`      | `string` | **Required**. uuid de la personne |
+
+
+### 01- Stades
+
+#### Récupérer tous les stades
+
+```http
+  GET /localhost:9090/stades
+```
+
+
+#### Récupérer un stade
+
+```http
+  GET /localhost:9090/stade/${uuid}
+```
+
+| Parameter | Type     | Description                       |
+| :-------- | :------- | :-------------------------------- |
+| `uuid`      | `string` | **Required**. uuid du stade |
+
+
+#### Ajouter un stade
+
+```http
+  POST /localhost:9090/stades
+```
+
+| Parameters | Type     | Description                       |
+| :-------- | :------- | :--------------------------------- |
+| `name`      | `string` | **Required**. Nom du stade |
+| `adresse`      | `string` | **Required**. Adresse du stade |
+| `ville`      | `string` | **Required**. Ville du stade |
+| `capacite`      | `integer` | **Required**. Capacité du stade |
+
+
+#### Supprimer un stade
+
+```http
+  DELETE /localhost:9090/stade/{uuid}
+```
+
+| Parameter | Type     | Description                       |
+| :-------- | :------- | :-------------------------------- |
+| `uuid`      | `string` | **Required**. uuid du stade |
