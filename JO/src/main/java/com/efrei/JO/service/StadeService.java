@@ -71,16 +71,16 @@ public class StadeService {
 		Stade stadeAModifier = findStadeById(uuid);
 
 		if(stadeAModifier != null) {
-			if(!stade.getName().isEmpty()) {
+			if(stade.getName() != null) {
 				stadeAModifier.setName(stade.getName());
 			}
-			if(!stade.getAdresse().isEmpty()) {
+			if(stade.getAdresse() != null) {
 				stadeAModifier.setAdresse(stade.getAdresse());
 			}
-			if(!stade.getVille().isEmpty()) {
+			if(stade.getVille() != null) {
 				stadeAModifier.setVille(stade.getVille());
 			}
-			if(stade.getCapacite() != 0) {
+			if(stade.getCapacite() != null) {
 				stadeAModifier.setCapacite(stade.getCapacite());
 			}
 			repository.save(stadeAModifier);
