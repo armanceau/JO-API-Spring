@@ -34,3 +34,14 @@ A brief description of what this project does and who it's for
 | :-------- | :------- | :--------------------------------- |
 | `name`      | `string` | **Required**. Nom de la personne |
 | `firstname`      | `string` | **Required**. Nom de la personne |
+
+
+#### Supprimer une personne
+
+```http
+  DELETE /localhost:9090/personnes/{uuid}
+```
+
+| Parameter | Type     | Description                       |
+| :-------- | :------- | :-------------------------------- |
+| `uuid`      | `string` | **Required**. uuid de la personne |
