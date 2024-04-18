@@ -12,7 +12,7 @@ public class Personne {
 	private String uuid;
 
 	@Column(
-			length = 25
+		length = 25
 	)
 	private String name;
 

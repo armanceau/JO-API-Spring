@@ -41,7 +41,7 @@ public class PersonneController {
 		return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 	}
 
-	@PreAuthorize("hasAuthority('ADMIN')")
+	//@PreAuthorize("hasAuthority('ADMIN')")
 	@PostMapping
 	public ResponseEntity<Personne> save(@Valid @RequestBody CreatePersonne personne) {
 		Personne createdPersonne = service.create(personne);
