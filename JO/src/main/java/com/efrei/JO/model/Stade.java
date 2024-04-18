@@ -37,7 +37,7 @@ public class Stade {
 	}
 
 	public String getAdresse() {
-		return this.adresse;
+		return adresse;
 	}
 
 	public void setAdresse(String adresse) {
@@ -45,7 +45,7 @@ public class Stade {
 	}
 
 	public String getVille() {
-		return this.ville;
+		return ville;
 	}
 
 	public void setVille(String ville) {
@@ -53,7 +53,7 @@ public class Stade {
 	}
 
 	public Integer getCapacite() {
-		return this.capacite;
+		return capacite;
 	}
 
 	public void setCapacite(Integer capacite) {

@@ -6,7 +6,7 @@ import jakarta.validation.constraints.*;
 public class CreateStade {
 
 	@NotBlank
-	@Size(min = 1, max = 40)
+	@Size(min = 1, max = 50)
 	private String name;
 
 	@NotBlank
