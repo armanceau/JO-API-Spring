@@ -67,10 +67,10 @@ public class PersonneService {
 		Personne personneAModifier = findPersonneById(uuid);
 
 		if(personneAModifier != null) {
-			if(!personne.getFirstname().isEmpty()) {
+			if(personne.getFirstname() != null) {
 				personneAModifier.setFirstname(personne.getFirstname());
 			}
-			if(!personne.getName().isEmpty()) {
+			if(personne.getName() != null) {
 				personneAModifier.setName(personne.getName());
 			}
 			repository.save(personneAModifier);
