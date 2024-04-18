@@ -23,7 +23,7 @@ A brief description of what this project does and who it's for
 
 | Parameter | Type     | Description                       |
 | :-------- | :------- | :-------------------------------- |
-| `uuid`      | `string` | **Required**. uuid de la personne |
+| `uuid`      | `string` | **`Required`** uuid de la personne |
 
 
 #### Ajouter une personne
@@ -34,7 +34,7 @@ A brief description of what this project does and who it's for
 
 | Parameters | Type     | Description                       |
 | :-------- | :------- | :--------------------------------- |
-| `name`      | `string` | **Required**. Nom de la personne |
+| `name`      | `string` | **`Required`** Nom de la personne |
 | `firstname`      | `string` | **`Required`** Nom de la personne |
 
 
@@ -46,7 +46,7 @@ A brief description of what this project does and who it's for
 
 | Parameter | Type     | Description                       |
 | :-------- | :------- | :-------------------------------- |
-| `uuid`      | `string` | `**Required**` uuid de la personne |
+| `uuid`      | `string` | **`Required`** uuid de la personne |
 
 
 #### Mettre à jour une personne
@@ -57,9 +57,9 @@ A brief description of what this project does and who it's for
 
 | Parameter | Type     | Description                       |
 | :-------- | :------- | :-------------------------------- |
-| `uuid`      | `string` | `**Required**` uuid de la personne |
-| `name`      | `string` | `**Required**` Nom de la personne |
-| `firstname`      | `string` |  `**Required**` Nom de la personne |
+| `uuid`      | `string` | **`Required`** uuid de la personne |
+| `name`      | `string` | **`Required`** Nom de la personne |
+| `firstname`      | `string` |  **`Required`** Nom de la personne |
 
 
 #### Mettre à jour partiellement une personne
@@ -70,7 +70,7 @@ A brief description of what this project does and who it's for
 
 | Parameter | Type     | Description                       |
 | :-------- | :------- | :-------------------------------- |
-| `uuid`      | `string` | **Required**. uuid de la personne |
+| `uuid`      | `string` | **`Required`** uuid de la personne |
 | `name`      | `string` | Nom de la personne |
 | `firstname`      | `string` |  Nom de la personne |
 
@@ -92,7 +92,7 @@ A brief description of what this project does and who it's for
 
 | Parameter | Type     | Description                       |
 | :-------- | :------- | :-------------------------------- |
-| `uuid`      | `string` | **Required**. uuid du stade |
+| `uuid`      | `string` | **`Required`** uuid du stade |
 
 
 #### Ajouter un stade
@@ -103,10 +103,10 @@ A brief description of what this project does and who it's for
 
 | Parameters | Type     | Description                       |
 | :-------- | :------- | :--------------------------------- |
-| `name`      | `string` | **Required**. Nom du stade |
-| `adresse`      | `string` | **Required**. Adresse du stade |
-| `ville`      | `string` | **Required**. Ville du stade |
-| `capacite`      | `integer` | **Required**. Capacité du stade |
+| `name`      | `string` | **`Required`** Nom du stade |
+| `adresse`      | `string` | **`Required`** Adresse du stade |
+| `ville`      | `string` | **`Required`** Ville du stade |
+| `capacite`      | `integer` | **`Required`** Capacité du stade |
 
 
 #### Supprimer un stade
@@ -117,4 +117,4 @@ A brief description of what this project does and who it's for
 
 | Parameter | Type     | Description                       |
 | :-------- | :------- | :-------------------------------- |
-| `uuid`      | `string` | **Required**. uuid du stade |
+| `uuid`      | `string` | **`Required`** uuid du stade |
