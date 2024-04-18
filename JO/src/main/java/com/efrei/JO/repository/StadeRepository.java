@@ -1,6 +1,6 @@
 package com.efrei.JO.repository;
 
-import com.efrei.JO.model.Personne;
+import com.efrei.JO.model.Stade;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
@@ -8,15 +8,15 @@ import java.util.List;
 import java.util.Optional;
 
 @Repository
-public interface PersonneRepository extends JpaRepository<Personne, String> {
+public interface StadeRepository extends JpaRepository<Stade, String> {
 
 	// SELECT * from Personne where deleted_at is null
-	List<Personne> findAllByDeletedAtNull();
+	List<Stade> findAllByDeletedAtNull();
 
 	// SELECT * FROM Student where uuid = ?
-	Optional<Personne> findOneByUuid(String uuid);
+	Optional<Stade> findOneByUuid(String uuid);
 
-	Personne save(Personne personne);
+	Stade save(Stade stade);
 
 	void deleteByUuid(String uuid);
 }
