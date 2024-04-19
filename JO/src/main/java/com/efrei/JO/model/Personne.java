@@ -53,7 +53,6 @@ public class Personne {
 		this.solde = solde;
 	}
 
-
 	public String getUuid() {
 		return uuid;
 	}
