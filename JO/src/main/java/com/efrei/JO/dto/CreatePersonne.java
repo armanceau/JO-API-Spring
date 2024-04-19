@@ -12,9 +12,13 @@ public class CreatePersonne {
 	@NotBlank
 	private String firstname;
 
-	public CreatePersonne(String name, String firstname) {
+	@NotNull
+	private float solde;
+
+	public CreatePersonne(String name, String firstname, Float solde) {
 		this.name = name;
 		this.firstname = firstname;
+		this.solde = solde;
 	}
 
 	public String getName() {
@@ -23,5 +27,9 @@ public class CreatePersonne {
 
 	public String getFirstname() {
 		return firstname;
+	}
+
+	public Float getSolde() {
+		return solde;
 	}
 }

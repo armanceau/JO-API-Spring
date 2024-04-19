@@ -20,10 +20,13 @@ public class Personne {
 
 	private LocalDateTime deletedAt = null;
 
+	private Float solde;
+
 	public Personne() {}
-	public Personne(String name, String firstname) {
+	public Personne(String name, String firstname, Float solde) {
 		this.name = name;
 		this.firstname = firstname;
+		this.solde = solde;
 	}
 
 	public String getName() {
@@ -41,6 +44,15 @@ public class Personne {
 	public void setFirstname(String firstname) {
 		this.firstname = firstname;
 	}
+
+	public Float getSolde() {
+		return solde;
+	}
+
+	public void setSolde(Float solde) {
+		this.solde = solde;
+	}
+
 
 	public String getUuid() {
 		return uuid;

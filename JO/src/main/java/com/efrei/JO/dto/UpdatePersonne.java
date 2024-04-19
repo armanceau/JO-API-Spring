@@ -7,9 +7,12 @@ public class UpdatePersonne {
 
 	private String firstname;
 
-	public UpdatePersonne(String name, String firstname) {
+	private Float solde;
+
+	public UpdatePersonne(String name, String firstname, Float solde) {
 		this.name = name;
 		this.firstname = firstname;
+		this.solde = solde;
 	}
 
 	public String getName() {
@@ -18,5 +21,9 @@ public class UpdatePersonne {
 
 	public String getFirstname() {
 		return firstname;
+	}
+
+	public Float getSolde(){
+		return solde;
 	}
 }

@@ -34,7 +34,8 @@ public class PersonneService {
 		//
 		Personne personneACreer = new Personne(
 			personne.getName(),
-			personne.getFirstname()
+			personne.getFirstname(),
+			personne.getSolde()
 		);
 		// je suis dans une entité
 		return repository.save(personneACreer);
@@ -57,6 +58,7 @@ public class PersonneService {
 		if(personneAModifier != null) {
 			personneAModifier.setFirstname(personne.getFirstname());
 			personneAModifier.setName(personne.getName());
+			personneAModifier.setSolde(personne.getSolde());
 			repository.save(personneAModifier);
 			return true;
 		}
@@ -72,6 +74,9 @@ public class PersonneService {
 			}
 			if(personne.getName() != null) {
 				personneAModifier.setName(personne.getName());
+			}
+			if(personne.getSolde() != null) {
+				personneAModifier.setSolde(personne.getSolde());
 			}
 			repository.save(personneAModifier);
 			return true;
