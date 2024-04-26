@@ -13,10 +13,10 @@ public interface BilletRepository extends JpaRepository<Billet, Integer> {
 	// SELECT * from Billet where deleted_at is null
 	List<Billet> findAllByDeletedAtNull();
 
-	// SELECT * FROM Billet where uuid = ?
-	Optional<Billet> findOneByNumero(Integer numero);
+	// SELECT * FROM Billet where numero = ?
+    Optional<Billet> findOneByUuid(String uuid);
 
 	Billet save(Billet billet);
 
-	void deleteByNumero(Integer numero);
+	void deleteByUuid(String uuid);
 }

@@ -8,9 +8,9 @@ import java.time.LocalDateTime;
 @Entity
 public class Billet {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.UUID)
     @Column(name = "numero", unique = true, nullable = false)
-    private Integer numero;
+    private String uuid;
 
 	private LocalDate dateValidite;
 
@@ -30,8 +30,8 @@ public class Billet {
 
 	public Billet() {}
 
-	public Billet(Integer numero, LocalDate dateValidite, Float prix, Epreuve epreuve, Personne personne, LocalDateTime deletedAt) {
-		this.numero = numero;
+	public Billet(String uuid, LocalDate dateValidite, Float prix, Epreuve epreuve, Personne personne, LocalDateTime deletedAt) {
+		this.uuid = uuid;
 		this.dateValidite = dateValidite;
 		this.prix = prix;
 		this.epreuve = epreuve;
@@ -40,12 +40,8 @@ public class Billet {
 		this.deletedAt = deletedAt;
 	}
 
-	public Integer GetNumero() {
-		return numero;
-	}
-
-	public Integer getNumero() {
-		return numero;
+	public String GetUuid() {
+		return uuid;
 	}
 
 	public LocalDate getDateValidite() {
