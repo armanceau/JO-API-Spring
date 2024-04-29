@@ -30,14 +30,12 @@ public class Billet {
 
 	public Billet() {}
 
-	public Billet(String uuid, LocalDate dateValidite, Float prix, Epreuve epreuve, Personne personne, LocalDateTime deletedAt) {
-		this.uuid = uuid;
+	public Billet(LocalDate dateValidite, Float prix, Epreuve epreuve, Personne personne) {
 		this.dateValidite = dateValidite;
 		this.prix = prix;
 		this.epreuve = epreuve;
 		this.personne = personne;
 		this.isValid = dateValidite.isBefore(LocalDate.now());
-		this.deletedAt = deletedAt;
 	}
 
 	public String GetUuid() {

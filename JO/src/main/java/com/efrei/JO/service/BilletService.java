@@ -1,5 +1,6 @@
 package com.efrei.JO.service;
 
+import com.efrei.JO.dto.CreateBillet;
 import com.efrei.JO.dto.CreateStade;
 import com.efrei.JO.dto.UpdateStade;
 import com.efrei.JO.model.Billet;
@@ -32,18 +33,17 @@ public class BilletService {
     }
       
 
-	// public Billet create(CreateBillet billet) {
-	// 	// ici je suis dans la DTO
-	// 	//
-	// 	Billet billetACreer = new Billet(
-	// 		billet.getDateValidite(),
-	// 		billet.getPrix(),
-	// 		billet.getEpreuve(),
-	// 		billet.getPersonne()
-	// 	);
-	// 	// je suis dans une entité
-	// 	return repository.save(billetACreer);
-	// }
+	public Billet create(CreateBillet billet) {
+		// ici je suis dans la DTO
+		//
+		Billet billetACreer = new Billet(
+			billet.getDateValidite(),
+			billet.getPrix(),
+			billet.getEpreuve(),
+			billet.getPersonne()
+		);
+		return repository.save(billetACreer);
+	}
 
 	@Transactional
 	public boolean delete(String uuid) {
