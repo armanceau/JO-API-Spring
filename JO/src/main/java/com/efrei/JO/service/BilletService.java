@@ -4,8 +4,10 @@ import com.efrei.JO.dto.CreateBillet;
 import com.efrei.JO.dto.CreateStade;
 import com.efrei.JO.dto.UpdateStade;
 import com.efrei.JO.model.Billet;
+import com.efrei.JO.model.Personne;
 import com.efrei.JO.model.Stade;
 import com.efrei.JO.repository.BilletRepository;
+import com.efrei.JO.repository.PersonneRepository;
 import com.efrei.JO.repository.StadeRepository;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,40 +19,50 @@ import java.util.List;
 @Service
 public class BilletService {
 
-	private final BilletRepository repository;
+	private final BilletRepository billetRepository;
+    private final PersonneRepository personneRepository;
 
-	@Autowired
-	public BilletService(BilletRepository repository) {
-		this.repository = repository;
-	}
+    @Autowired
+    public BilletService(BilletRepository billetRepository, PersonneRepository personneRepository) {
+        this.billetRepository = billetRepository;
+        this.personneRepository = personneRepository;
+    }
 
 	public List<Billet> findAllBillets() {
-		return repository.findAllByDeletedAtNull();
+		return billetRepository.findAllByDeletedAtNull();
 	}
 
     public Billet findBilletById(String uuid) {
-        return repository.findOneByUuid(uuid).orElse(null);
+        return billetRepository.findOneByUuid(uuid).orElse(null);
     }
       
 
-	public Billet create(CreateBillet billet) {
-		// ici je suis dans la DTO
-		//
-		Billet billetACreer = new Billet(
-			billet.getDateValidite(),
-			billet.getPrix(),
-			billet.getEpreuve(),
-			billet.getPersonne()
-		);
-		return repository.save(billetACreer);
-	}
+    public Billet create(CreateBillet billetData) {
+        // Récupérer la personne à partir de son UUID
+        Personne personne = personneRepository.findOneByUuid(billetData.getPersonne().getUuid())
+                .orElseThrow(() -> new IllegalArgumentException("La personne spécifiée n'existe pas"));
+
+        // Vérifier si le solde de la personne est suffisant
+        Float soldeRestant = personne.getSolde() - billetData.getPrix();
+        if (soldeRestant < 0) {
+            throw new IllegalArgumentException("Le solde de la personne est insuffisant pour acheter ce billet");
+        }
+
+        // Déduire le prix du billet du solde de la personne
+        personne.setSolde(soldeRestant);
+        personneRepository.save(personne);
+
+        // Créer le billet
+        Billet billet = new Billet(billetData.getDateValidite(), billetData.getPrix(), billetData.getEpreuve(), personne);
+        return billetRepository.save(billet);
+    }
 
 	@Transactional
 	public boolean delete(String uuid) {
 		Billet billetASupprimer = findBilletById(uuid);
 		if(billetASupprimer != null && billetASupprimer.getDeletedAt() == null) {
 			billetASupprimer.setDeletedAt(LocalDateTime.now());
-			repository.save(billetASupprimer);
+			billetRepository.save(billetASupprimer);
 			return true;
 		}
 		return false;
