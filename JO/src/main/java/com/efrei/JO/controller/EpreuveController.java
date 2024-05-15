@@ -1,6 +1,7 @@
 package com.efrei.JO.controller;
 
 import com.efrei.JO.dto.CreateEpreuve;
+import com.efrei.JO.dto.UpdateEpreuve;
 import com.efrei.JO.model.Epreuve;
 import com.efrei.JO.service.EpreuveService;
 import jakarta.validation.Valid;
@@ -56,16 +57,16 @@ public class EpreuveController {
 		return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 	}
 
-	// @PutMapping("/{uuid}")
-	// public ResponseEntity<?> mettreAJourTotalement(
-	// 		@PathVariable String uuid,
-	// 		@RequestBody UpdateStade stade) {
-	// 	boolean isUpdated = service.update(uuid, stade);
-	// 	if(isUpdated) {
-	// 		return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-	// 	}
-	// 	return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-	// }
+	@PutMapping("/{uuid}")
+	public ResponseEntity<?> mettreAJourTotalement(
+			@PathVariable String uuid,
+			@RequestBody UpdateEpreuve epreuve) {
+		boolean isUpdated = service.update(uuid, epreuve);
+		if(isUpdated) {
+			return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+		}
+		return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+	}
 
 	// @PatchMapping("/{uuid}")
 	// public ResponseEntity<?> mettreAjourPartiellement(

@@ -40,7 +40,7 @@ public class Epreuve {
 		return date;
 	}
 
-	public void getDate(LocalDate date) {
+	public void setDate(LocalDate date) {
 		this.date = date;
 	}
 
