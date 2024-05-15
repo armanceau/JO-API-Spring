@@ -15,7 +15,8 @@ public interface StadeRepository extends JpaRepository<Stade, String> {
 
 	// SELECT * FROM Stade where uuid = ?
 	Optional<Stade> findOneByUuid(String uuid);
-
+	
+	@SuppressWarnings({ "null", "unchecked" })
 	Stade save(Stade stade);
 
 	void deleteByUuid(String uuid);

@@ -2,7 +2,6 @@ package com.efrei.JO.service;
 
 import com.efrei.JO.dto.CreateEpreuve;
 import com.efrei.JO.dto.UpdateEpreuve;
-import com.efrei.JO.dto.UpdateStade;
 import com.efrei.JO.model.Epreuve;
 import com.efrei.JO.repository.EpreuveRepository;
 import jakarta.transaction.Transactional;

@@ -1,7 +1,6 @@
 package com.efrei.JO.repository;
 
 import com.efrei.JO.model.Epreuve;
-import com.efrei.JO.model.Stade;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
@@ -17,6 +16,7 @@ public interface EpreuveRepository extends JpaRepository<Epreuve, String> {
 	// SELECT * FROM Student where uuid = ?
 	Optional<Epreuve> findOneByUuid(String uuid);
 
+	@SuppressWarnings({ "null", "unchecked" })
 	Epreuve save(Epreuve epreuve);
 
 	void deleteByUuid(String uuid);

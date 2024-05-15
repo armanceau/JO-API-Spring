@@ -16,6 +16,7 @@ public interface BilletRepository extends JpaRepository<Billet, Integer> {
 	// SELECT * FROM Billet where numero = ?
     Optional<Billet> findOneByUuid(String uuid);
 
+	@SuppressWarnings({ "null", "unchecked" })
 	Billet save(Billet billet);
 
 	void deleteByUuid(String uuid);

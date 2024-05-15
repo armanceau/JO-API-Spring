@@ -1,14 +1,10 @@
 package com.efrei.JO.service;
 
 import com.efrei.JO.dto.CreateBillet;
-import com.efrei.JO.dto.CreateStade;
-import com.efrei.JO.dto.UpdateStade;
 import com.efrei.JO.model.Billet;
 import com.efrei.JO.model.Personne;
-import com.efrei.JO.model.Stade;
 import com.efrei.JO.repository.BilletRepository;
 import com.efrei.JO.repository.PersonneRepository;
-import com.efrei.JO.repository.StadeRepository;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

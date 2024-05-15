@@ -16,6 +16,7 @@ public interface PersonneRepository extends JpaRepository<Personne, String> {
 	// SELECT * FROM Personne where uuid = ?
 	Optional<Personne> findOneByUuid(String uuid);
 
+	@SuppressWarnings({ "null", "unchecked" })
 	Personne save(Personne personne);
 
 	void deleteByUuid(String uuid);
