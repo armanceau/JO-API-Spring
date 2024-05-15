@@ -28,6 +28,7 @@ public class CreateBillet {
 
 	private boolean isValid;
 
+	
 	public CreateBillet(LocalDate dateValidite, Float prix, Epreuve epreuve, Personne personne) {
 		this.dateValidite = dateValidite;
 		this.prix = prix;
