@@ -6,7 +6,6 @@ import com.efrei.JO.dto.RegisterDto;
 import com.efrei.JO.model.User;
 import com.efrei.JO.service.AuthService;
 import com.efrei.JO.security.JwtService;
-import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;

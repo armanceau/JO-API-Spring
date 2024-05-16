@@ -1,6 +1,7 @@
 package com.efrei.JO.service;
 
 import com.efrei.JO.dto.CreateBillet;
+import com.efrei.JO.dto.UpdateBillet;
 import com.efrei.JO.model.Billet;
 import com.efrei.JO.model.Personne;
 import com.efrei.JO.repository.BilletRepository;
@@ -64,39 +65,39 @@ public class BilletService {
 		return false;
 	}
 
-	// public boolean update(String uuid, UpdateBillet billet) {
-	// 	Billet billetAModifier = findBilletById(uuid);
+	public boolean update(String uuid, UpdateBillet billet) {
+		Billet billetAModifier = findBilletById(uuid);
 
-	// 	if(billetAModifier != null) {
-	// 		billetAModifier.setDateValidite(billet.getDateValidite());
-	// 		billetAModifier.setPrix(billet.getPrix());
-	// 		billetAModifier.setEpreuve(billet.getEpreuve());
-	// 		billetAModifier.setPersonne(billet.getPersonne());
-	// 		repository.save(billetAModifier);
-	// 		return true;
-	// 	}
-	// 	return false;
-	// }
+		if(billetAModifier != null) {
+			billetAModifier.setDateValidite(billet.getDateValidite());
+			billetAModifier.setPrix(billet.getPrix());
+			billetAModifier.setEpreuve(billet.getEpreuve());
+			billetAModifier.setPersonne(billet.getPersonne());
+			billetRepository.save(billetAModifier);
+			return true;
+		}
+		return false;
+	}
 
-	// public boolean updatePartielle(String uuid, UpdateBillet billet) {
-	// 	Billet billetAModifier = findBilletById(uuid);
+	public boolean updatePartielle(String uuid, UpdateBillet billet) {
+		Billet billetAModifier = findBilletById(uuid);
 
-	// 	if(billetAModifier != null) {
-	// 		if(billet.getDateValidite() != null) {
-	// 			billetAModifier.setDateValidite(billet.getDateValidite());
-	// 		}
-	// 		if(billet.getPrix() != null) {
-	// 			billetAModifier.setPrix(billet.getPrix());
-	// 		}
-	// 		if(billet.getEpreuve() != null) {
-	// 			billetAModifier.setEpreuve(billet.getEpreuve());
-	// 		}
-	// 		if(billet.getPersonne() != null) {
-	// 			billetAModifier.setPersonne(billet.getPersonne());
-	// 		}
-	// 		repository.save(billetAModifier);
-	// 		return true;
-	// 	}
-	// 	return false;
-	// }
+		if(billetAModifier != null) {
+			if(billet.getDateValidite() != null) {
+				billetAModifier.setDateValidite(billet.getDateValidite());
+			}
+			if(billet.getPrix() != null) {
+				billetAModifier.setPrix(billet.getPrix());
+			}
+			if(billet.getEpreuve() != null) {
+				billetAModifier.setEpreuve(billet.getEpreuve());
+			}
+			if(billet.getPersonne() != null) {
+				billetAModifier.setPersonne(billet.getPersonne());
+			}
+			billetRepository.save(billetAModifier);
+			return true;
+		}
+		return false;
+	}
 }
