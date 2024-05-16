@@ -244,3 +244,7 @@ A brief description of what this project does and who it's for
 | `email`      | `string` | **`Required`** email de l'utilisateur |
 | `password`      | `string` | **`Required`** Strong password (Passw0rd!) |
 
+
+### Autres fonctionnalités
+
+- Lorsque un billet est attribué à une personne, le billet est supprimé de la billetterie et le prix du billet est dédié du solde de la personne
