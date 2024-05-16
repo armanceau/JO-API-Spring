@@ -20,13 +20,13 @@ public class Billet {
     @JoinColumn(name = "epreuve_uuid")
     private Epreuve epreuve;
 
-	@ManyToOne
-	@JoinColumn(name = "personne_uuid")
+	@ManyToOne (optional = true)
+	@JoinColumn(name = "personne_uuid", nullable = true)
     private Personne personne;
 
 	@ManyToOne
-	@JoinColumn(name = "billeterie_uuid")
-    private Billetterie billeterie;
+	@JoinColumn(name = "billetterie_uuid")
+    private Billetterie billetterie;
 
 	private boolean isValid;
 
@@ -34,7 +34,24 @@ public class Billet {
 
 	public Billet() {}
 
-	public Billet(LocalDate dateValidite, Float prix, Epreuve epreuve, Personne personne, Billetterie billeterie) {
+	public Billet(LocalDate dateValidite, Float prix, Epreuve epreuve) {
+		this.dateValidite = dateValidite;
+		this.prix = prix;
+		this.epreuve = epreuve;
+		this.isValid = dateValidite.isBefore(LocalDate.now());
+	}
+
+	//Constructeur de la création d'un billet (billet n'appartient pour l'instant à personne)
+	public Billet(LocalDate dateValidite, Float prix, Epreuve epreuve, Billetterie billetterie) {
+		this.dateValidite = dateValidite;
+		this.prix = prix;
+		this.epreuve = epreuve;
+		this.isValid = dateValidite.isBefore(LocalDate.now());
+		this.billetterie = billetterie;
+	}
+
+	//Constructeur de l'update d'un billet (attrivution du billet à une personne)
+	public Billet(LocalDate dateValidite, Float prix, Epreuve epreuve, Personne personne, Billetterie billetterie) {
 		this.dateValidite = dateValidite;
 		this.prix = prix;
 		this.epreuve = epreuve;
@@ -86,12 +103,12 @@ public class Billet {
 		return deletedAt;
 	}
 
-	public Billetterie getBilleterie() {
-		return billeterie;
+	public Billetterie getBilletterie() {
+		return billetterie;
 	}
 
-	public void setBilleterie(Billetterie billeterie) {
-		this.billeterie = billeterie;
+	public void setBilletterie(Billetterie billetterie) {
+		this.billetterie = billetterie;
 	}
 
 	public void setDeletedAt(LocalDateTime deletedAt) {

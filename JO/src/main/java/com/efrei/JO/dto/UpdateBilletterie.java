@@ -1,10 +1,10 @@
 package com.efrei.JO.dto;
 
-public class UpdateBilleterie {
+public class UpdateBilletterie {
 
 	private String name;
 
-	public UpdateBilleterie(String name) {
+	public UpdateBilletterie(String name) {
 		this.name = name;
 	}
 

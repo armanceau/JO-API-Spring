@@ -15,7 +15,7 @@ import java.util.List;
 
 
 @RestController
-@RequestMapping("/billeteries")
+@RequestMapping("/billetteries")
 @EnableMethodSecurity
 public class BilletterieController {
 

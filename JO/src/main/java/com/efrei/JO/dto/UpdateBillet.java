@@ -10,15 +10,15 @@ public class UpdateBillet {
 	private LocalDate dateValidite;
     private Epreuve epreuve;
 	private Personne personne;
-	private Billetterie billeterie;
+	private Billetterie billetterie;
 
 
-	public UpdateBillet(Float prix, LocalDate dateValidite, Epreuve epreuve, Personne personne, Billetterie billeterie) {
+	public UpdateBillet(Float prix, LocalDate dateValidite, Epreuve epreuve, Personne personne, Billetterie billetterie) {
 		this.prix = prix;
 		this.dateValidite = dateValidite;
 		this.epreuve = epreuve;
 		this.personne = personne;
-		this.billeterie = billeterie;
+		this.billetterie = billetterie;
 	}
 
 	public Float getPrix() {
@@ -33,8 +33,8 @@ public class UpdateBillet {
 		return epreuve;
 	}
 
-	public Billetterie getBilleterie(){
-		return billeterie;
+	public Billetterie getBilletterie(){
+		return billetterie;
 	}
 
 	public Personne getPersonne(){

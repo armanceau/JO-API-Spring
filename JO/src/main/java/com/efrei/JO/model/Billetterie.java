@@ -12,29 +12,30 @@ public class Billetterie {
     @GeneratedValue(strategy = GenerationType.UUID)
     private String uuid;
 
-	private String nom;
-
-	@ManyToMany
-	private Set<Billet> billets = new HashSet<>();
+	@Column(
+		nullable = false,
+		length = 100
+	)
+	private String name;
 
 	private LocalDateTime deletedAt = null;
 
 	public Billetterie() {}
 
-	public Billetterie(String nom) {
-		this.nom = nom;
+	public Billetterie(String name) {
+		this.name = name;
 	}
 
 	public String GetUuid() {
 		return uuid;
 	}
 
-	public String getNom() {
-		return nom;
+	public String getName() {
+		return name;
 	}
 
-	public void setNom(String nom) {
-		this.nom = nom;
+	public void setName(String name) {
+		this.name = name;
 	}
 
 	public LocalDateTime getDeletedAt() {

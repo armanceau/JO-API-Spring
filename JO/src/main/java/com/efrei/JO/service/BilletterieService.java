@@ -14,37 +14,37 @@ import java.util.List;
 @Service
 public class BilletterieService {
 
-	private final BilletterieRepository repos;
+	private final BilletterieRepository repository;
 
     @Autowired
-    public BilletterieService(BilletterieRepository repos) {
-        this.repos = repos;
+    public BilletterieService(BilletterieRepository repository) {
+        this.repository = repository;
     }
 
 	public List<Billetterie> findAllBilletteries() {
-		return repos.findAllByDeletedAtNull();
+		return repository.findAllByDeletedAtNull();
 	}
 
     public Billetterie findBilletterieById(String uuid) {
-        return repos.findOneByUuid(uuid).orElse(null);
+        return repository.findOneByUuid(uuid).orElse(null);
     }
 
-	public Billetterie create(CreateBilletterie billeterie) {
+	public Billetterie create(CreateBilletterie billetterie) {
 		// ici je suis dans la DTO
 		//
-		Billetterie billeterieACreer = new Billetterie(
-			billeterie.getNom()
+		Billetterie billetterieACreer = new Billetterie(
+			billetterie.getName()
 		);
 		// je suis dans une entité
-		return repos.save(billeterieACreer);
+		return repository.save(billetterieACreer);
 	}
 
 	@Transactional
 	public boolean delete(String uuid) {
-		Billetterie BilleterieASupprimer = findBilletterieById(uuid);
-		if(BilleterieASupprimer != null && BilleterieASupprimer.getDeletedAt() == null) {
-			BilleterieASupprimer.setDeletedAt(LocalDateTime.now());
-			repos.save(BilleterieASupprimer);
+		Billetterie BilletterieASupprimer = findBilletterieById(uuid);
+		if(BilletterieASupprimer != null && BilletterieASupprimer.getDeletedAt() == null) {
+			BilletterieASupprimer.setDeletedAt(LocalDateTime.now());
+			repository.save(BilletterieASupprimer);
 			return true;
 		}
 		return false;
