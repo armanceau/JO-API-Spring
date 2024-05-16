@@ -50,7 +50,7 @@ public class BilletService {
         personneRepository.save(personne);
 
         // Créer le billet
-        Billet billet = new Billet(billetData.getDateValidite(), billetData.getPrix(), billetData.getEpreuve(), personne);
+        Billet billet = new Billet(billetData.getDateValidite(), billetData.getPrix(), billetData.getEpreuve(), personne, billetData.getBilleterie());
         return billetRepository.save(billet);
     }
 
@@ -73,6 +73,7 @@ public class BilletService {
 			billetAModifier.setPrix(billet.getPrix());
 			billetAModifier.setEpreuve(billet.getEpreuve());
 			billetAModifier.setPersonne(billet.getPersonne());
+			billetAModifier.setBilleterie(billet.getBilleterie());
 			billetRepository.save(billetAModifier);
 			return true;
 		}
@@ -94,6 +95,9 @@ public class BilletService {
 			}
 			if(billet.getPersonne() != null) {
 				billetAModifier.setPersonne(billet.getPersonne());
+			}
+			if(billet.getBilleterie() != null) {
+				billetAModifier.setBilleterie(billet.getBilleterie());
 			}
 			billetRepository.save(billetAModifier);
 			return true;

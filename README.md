@@ -21,7 +21,7 @@ A brief description of what this project does and who it's for
   GET /localhost:9090/personnes/${uuid}
 ```
 
-| Parameter | Type     | Description                       |
+| Paramètres | Type     | Description                       |
 | :-------- | :------- | :-------------------------------- |
 | `uuid`      | `string` | **`Required`** uuid de la personne |
 
@@ -32,7 +32,7 @@ A brief description of what this project does and who it's for
   POST /localhost:9090/personnes
 ```
 
-| Parameters | Type     | Description                       |
+| Paramètres | Type     | Description                       |
 | :-------- | :------- | :--------------------------------- |
 | `name`      | `string` | **`Required`** Nom de la personne |
 | `firstname`      | `string` | **`Required`** Nom de la personne |
@@ -44,7 +44,7 @@ A brief description of what this project does and who it's for
   DELETE /localhost:9090/personnes/{uuid}
 ```
 
-| Parameter | Type     | Description                       |
+| Paramètres | Type     | Description                       |
 | :-------- | :------- | :-------------------------------- |
 | `uuid`      | `string` | **`Required`** uuid de la personne |
 
@@ -55,7 +55,7 @@ A brief description of what this project does and who it's for
   PUT /localhost:9090/personnes/{uuid}
 ```
 
-| Parameter | Type     | Description                       |
+| Paramètres | Type     | Description                       |
 | :-------- | :------- | :-------------------------------- |
 | `uuid`      | `string` | **`Required`** uuid de la personne |
 | `name`      | `string` | **`Required`** Nom de la personne |
@@ -68,7 +68,7 @@ A brief description of what this project does and who it's for
   PATCH /localhost:9090/personnes/{uuid}
 ```
 
-| Parameter | Type     | Description                       |
+| Paramètres | Type     | Description                       |
 | :-------- | :------- | :-------------------------------- |
 | `uuid`      | `string` | **`Required`** uuid de la personne |
 | `name`      | `string` | Nom de la personne |
@@ -90,7 +90,7 @@ A brief description of what this project does and who it's for
   GET /localhost:9090/stades/${uuid}
 ```
 
-| Parameter | Type     | Description                       |
+| Paramètres | Type     | Description                       |
 | :-------- | :------- | :-------------------------------- |
 | `uuid`      | `string` | **`Required`** uuid du stade |
 
@@ -115,7 +115,7 @@ A brief description of what this project does and who it's for
   DELETE /localhost:9090/stades/{uuid}
 ```
 
-| Parameter | Type     | Description                       |
+| Paramètres | Type     | Description                       |
 | :-------- | :------- | :-------------------------------- |
 | `uuid`      | `string` | **`Required`** uuid du stade |
 
@@ -126,7 +126,7 @@ A brief description of what this project does and who it's for
   PUT /localhost:9090/stades/{uuid}
 ```
 
-| Parameter | Type     | Description                       |
+| Paramètres | Type     | Description                       |
 | :-------- | :------- | :-------------------------------- |
 | `uuid`      | `string` | **`Required`** uuid du stade |
 | `name`      | `string` | **`Required`** Nom du stade |
@@ -141,7 +141,7 @@ A brief description of what this project does and who it's for
   PATCH /localhost:9090/stades/{uuid}
 ```
 
-| Parameter | Type     | Description                       |
+| Paramètres | Type     | Description                       |
 | :-------- | :------- | :-------------------------------- |
 | `uuid`      | `string` | **`Required`** uuid du stade |
 | `name`      | `string` | Nom du stade |
@@ -165,7 +165,7 @@ A brief description of what this project does and who it's for
   GET /localhost:9090/epreuves/${uuid}
 ```
 
-| Parameter | Type     | Description                       |
+| Paramètres | Type     | Description                       |
 | :-------- | :------- | :-------------------------------- |
 | `uuid`      | `string` | **`Required`** uuid de l'épreuve |
 
@@ -176,7 +176,7 @@ A brief description of what this project does and who it's for
   POST /localhost:9090/epreuves
 ```
 
-| Parameters | Type     | Description                       |
+| Paramètres | Type     | Description                       |
 | :-------- | :------- | :--------------------------------- |
 | `name`      | `string` | **`Required`** Nom de l'épreuve |
 | `date`      | `date` | **`Required`** date de l'épreuve |
@@ -189,7 +189,7 @@ A brief description of what this project does and who it's for
   DELETE /localhost:9090/epreuves/{uuid}
 ```
 
-| Parameter | Type     | Description                       |
+| Paramètres | Type     | Description                       |
 | :-------- | :------- | :-------------------------------- |
 | `uuid`      | `string` | **`Required`** uuid de l'érpeuve |
 
@@ -200,7 +200,7 @@ A brief description of what this project does and who it's for
   PUT /localhost:9090/epreuves/{uuid}
 ```
 
-| Parameters | Type     | Description                       |
+| Paramètres | Type     | Description                       |
 | :-------- | :------- | :--------------------------------- |
 | `name`      | `string` | **`Required`** Nom de l'épreuve |
 | `date`      | `date` | **`Required`** date de l'épreuve |
@@ -213,7 +213,7 @@ A brief description of what this project does and who it's for
   PATCH /localhost:9090/epreuves/{uuid}
 ```
 
-| Parameters | Type     | Description                       |
+| Paramètres | Type     | Description                       |
 | :-------- | :------- | :--------------------------------- |
 | `name`      | `string` | **`Required`** Nom de l'épreuve |
 | `date`      | `date` | date de l'épreuve |
@@ -227,7 +227,7 @@ A brief description of what this project does and who it's for
   POST /localhost:9090/auth/signup
 ```
 
-| Parameter | Type     | Description                       |
+| Paramètres | Type     | Description                       |
 | :-------- | :------- | :-------------------------------- |
 | `email`      | `string` | **`Required`** email de l'utilisateur |
 | `password`      | `string` | **`Required`** Strong password (Passw0rd!) |
@@ -239,7 +239,7 @@ A brief description of what this project does and who it's for
   POST /localhost:9090/auth/login
 ```
 
-| Parameter | Type     | Description                       |
+| Paramètres | Type     | Description                       |
 | :-------- | :------- | :-------------------------------- |
 | `email`      | `string` | **`Required`** email de l'utilisateur |
 | `password`      | `string` | **`Required`** Strong password (Passw0rd!) |

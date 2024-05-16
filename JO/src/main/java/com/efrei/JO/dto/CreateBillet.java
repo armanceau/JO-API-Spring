@@ -2,6 +2,7 @@ package com.efrei.JO.dto;
 
 import java.time.LocalDate;
 
+import com.efrei.JO.model.Billetterie;
 import com.efrei.JO.model.Epreuve;
 import com.efrei.JO.model.Personne;
 
@@ -26,13 +27,18 @@ public class CreateBillet {
 	@JoinColumn(name = "personne_uuid")
     private Personne personne;
 
+	@ManyToOne
+	@JoinColumn(name = "billeterie_uuid")
+    private Billetterie billeterie;
+
 	private boolean isValid;
 
-	public CreateBillet(LocalDate dateValidite, Float prix, Epreuve epreuve, Personne personne) {
+	public CreateBillet(LocalDate dateValidite, Float prix, Epreuve epreuve, Personne personne, Billetterie billeterie) {
 		this.dateValidite = dateValidite;
 		this.prix = prix;
 		this.epreuve = epreuve;
 		this.personne = personne;
+		this.billeterie = billeterie;
 		this.isValid = dateValidite.isBefore(LocalDate.now());
 	}
 
@@ -46,6 +52,10 @@ public class CreateBillet {
 
 	public Epreuve getEpreuve() {
 		return epreuve;
+	}
+
+	public Billetterie getBilleterie() {
+		return billeterie;
 	}
 
 	public Personne getPersonne() {

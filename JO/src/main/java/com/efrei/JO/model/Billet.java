@@ -24,13 +24,17 @@ public class Billet {
 	@JoinColumn(name = "personne_uuid")
     private Personne personne;
 
+	@ManyToOne
+	@JoinColumn(name = "billeterie_uuid")
+    private Billetterie billeterie;
+
 	private boolean isValid;
 
 	private LocalDateTime deletedAt = null;
 
 	public Billet() {}
 
-	public Billet(LocalDate dateValidite, Float prix, Epreuve epreuve, Personne personne) {
+	public Billet(LocalDate dateValidite, Float prix, Epreuve epreuve, Personne personne, Billetterie billeterie) {
 		this.dateValidite = dateValidite;
 		this.prix = prix;
 		this.epreuve = epreuve;
@@ -80,6 +84,14 @@ public class Billet {
 
 	public LocalDateTime getDeletedAt() {
 		return deletedAt;
+	}
+
+	public Billetterie getBilleterie() {
+		return billeterie;
+	}
+
+	public void setBilleterie(Billetterie billeterie) {
+		this.billeterie = billeterie;
 	}
 
 	public void setDeletedAt(LocalDateTime deletedAt) {
