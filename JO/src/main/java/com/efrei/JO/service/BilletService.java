@@ -6,7 +6,6 @@ import com.efrei.JO.model.Billet;
 import com.efrei.JO.model.Billetterie;
 import com.efrei.JO.model.Personne;
 import com.efrei.JO.repository.BilletRepository;
-import com.efrei.JO.repository.BilletterieRepository;
 import com.efrei.JO.repository.PersonneRepository;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,14 +20,11 @@ public class BilletService {
 	private final BilletRepository billetRepository;
     private final PersonneRepository personneRepository;
 	private final BilletterieService billetterieService;
-	private final BilletterieRepository billetterieRepository;
-
 
     @Autowired
-    public BilletService(BilletRepository billetRepository, PersonneRepository personneRepository,  BilletterieRepository billetterieRepository, BilletterieService billetterieService) {
+    public BilletService(BilletRepository billetRepository, PersonneRepository personneRepository, BilletterieService billetterieService) {
         this.billetRepository = billetRepository;
         this.personneRepository = personneRepository;
-		this.billetterieRepository = billetterieRepository;
 		this.billetterieService = billetterieService;
     }
 
