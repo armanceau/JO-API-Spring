@@ -87,7 +87,7 @@ A brief description of what this project does and who it's for
 #### Récupérer un stade
 
 ```http
-  GET /localhost:9090/stade/${uuid}
+  GET /localhost:9090/stades/${uuid}
 ```
 
 | Parameter | Type     | Description                       |
@@ -112,7 +112,7 @@ A brief description of what this project does and who it's for
 #### Supprimer un stade
 
 ```http
-  DELETE /localhost:9090/stade/{uuid}
+  DELETE /localhost:9090/stades/{uuid}
 ```
 
 | Parameter | Type     | Description                       |
@@ -150,7 +150,7 @@ A brief description of what this project does and who it's for
 | `capacite`      | `integer` | Capacité du stade |
 
 
-### 03- Epreuves
+### 04- Epreuves
 
 #### Récupérer toutes les épreuves
 
@@ -162,7 +162,7 @@ A brief description of what this project does and who it's for
 #### Récupérer une épreuve
 
 ```http
-  GET /localhost:9090/epreuve/${uuid}
+  GET /localhost:9090/epreuves/${uuid}
 ```
 
 | Parameter | Type     | Description                       |
@@ -173,7 +173,7 @@ A brief description of what this project does and who it's for
 #### Ajouter une épreuve
 
 ```http
-  POST /localhost:9090/epreuve
+  POST /localhost:9090/epreuves
 ```
 
 | Parameters | Type     | Description                       |
@@ -186,7 +186,7 @@ A brief description of what this project does and who it's for
 #### Supprimer une épreuve
 
 ```http
-  DELETE /localhost:9090/epreuve/{uuid}
+  DELETE /localhost:9090/epreuves/{uuid}
 ```
 
 | Parameter | Type     | Description                       |
@@ -197,7 +197,7 @@ A brief description of what this project does and who it's for
 #### Mettre à jour une epreuve
 
 ```http
-  PUT /localhost:9090/epreuve/{uuid}
+  PUT /localhost:9090/epreuves/{uuid}
 ```
 
 | Parameters | Type     | Description                       |
@@ -210,7 +210,7 @@ A brief description of what this project does and who it's for
 #### Mettre à jour partiellement une epreuve
 
 ```http
-  PATCH /localhost:9090/epreuve/{uuid}
+  PATCH /localhost:9090/epreuves/{uuid}
 ```
 
 | Parameters | Type     | Description                       |
@@ -218,3 +218,29 @@ A brief description of what this project does and who it's for
 | `name`      | `string` | **`Required`** Nom de l'épreuve |
 | `date`      | `date` | date de l'épreuve |
 | `stade`      | `stade` | Stade où l'épreuve à lieu |
+
+### 05- Login/Register
+
+#### Register
+
+```http
+  POST /localhost:9090/auth/signup
+```
+
+| Parameter | Type     | Description                       |
+| :-------- | :------- | :-------------------------------- |
+| `email`      | `string` | **`Required`** email de l'utilisateur |
+| `password`      | `string` | **`Required`** Strong password (Passw0rd!) |
+
+
+#### Login
+
+```http
+  POST /localhost:9090/auth/login
+```
+
+| Parameter | Type     | Description                       |
+| :-------- | :------- | :-------------------------------- |
+| `email`      | `string` | **`Required`** email de l'utilisateur |
+| `password`      | `string` | **`Required`** Strong password (Passw0rd!) |
+
