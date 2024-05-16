@@ -1,6 +1,7 @@
 package com.efrei.JO.controller;
 
 import com.efrei.JO.dto.CreateBillet;
+import com.efrei.JO.dto.UpdateBillet;
 import com.efrei.JO.model.Billet;
 import com.efrei.JO.service.BilletService;
 import jakarta.validation.Valid;
@@ -47,34 +48,34 @@ public class BilletController {
 		return new ResponseEntity<>(createdBillet, HttpStatus.CREATED);
 	}
 
-	// @DeleteMapping("/{uuid}")
-	// public ResponseEntity<?> delete(@PathVariable String uuid) {
-	// 	boolean isDeleted = service.delete(uuid);
-	// 	if(isDeleted) {
-	// 		return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-	// 	}
-	// 	return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-	// }
+	@DeleteMapping("/{uuid}")
+	public ResponseEntity<?> delete(@PathVariable String uuid) {
+		boolean isDeleted = service.delete(uuid);
+		if(isDeleted) {
+			return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+		}
+		return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+	}
 
-	// @PutMapping("/{uuid}")
-	// public ResponseEntity<?> mettreAJourTotalement(
-	// 		@PathVariable String uuid,
-	// 		@RequestBody UpdateStade stade) {
-	// 	boolean isUpdated = service.update(uuid, stade);
-	// 	if(isUpdated) {
-	// 		return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-	// 	}
-	// 	return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-	// }
+	@PutMapping("/{uuid}")
+	public ResponseEntity<?> mettreAJourTotalement(
+			@PathVariable String uuid,
+			@RequestBody UpdateBillet billet) {
+		boolean isUpdated = service.update(uuid, billet);
+		if(isUpdated) {
+			return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+		}
+		return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+	}
 
-	// @PatchMapping("/{uuid}")
-	// public ResponseEntity<?> mettreAjourPartiellement(
-	// 		@PathVariable String uuid,
-	// 		@RequestBody UpdateStade stade) {
-	// 	boolean isUpdated = service.updatePartielle(uuid, stade);
-	// 	if(isUpdated) {
-	// 		return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-	// 	}
-	// 	return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-	// }
+	@PatchMapping("/{uuid}")
+	public ResponseEntity<?> mettreAjourPartiellement(
+			@PathVariable String uuid,
+			@RequestBody UpdateBillet billet) {
+		boolean isUpdated = service.updatePartielle(uuid, billet);
+		if(isUpdated) {
+			return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+		}
+		return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+	}
 }

@@ -6,7 +6,7 @@ import com.efrei.JO.model.Billet;
 import com.efrei.JO.model.Billetterie;
 import com.efrei.JO.model.Personne;
 import com.efrei.JO.repository.BilletRepository;
-//import com.efrei.JO.repository.BilletterieRepository;
+import com.efrei.JO.repository.BilletterieRepository;
 import com.efrei.JO.repository.PersonneRepository;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,13 +21,14 @@ public class BilletService {
 	private final BilletRepository billetRepository;
     private final PersonneRepository personneRepository;
 	private final BilletterieService billetterieService;
-	//private final BilletterieRepository billetterieRepository;
+	private final BilletterieRepository billetterieRepository;
 
 
     @Autowired
-    public BilletService(BilletRepository billetRepository, PersonneRepository personneRepository, BilletterieService billetterieService) {
+    public BilletService(BilletRepository billetRepository, PersonneRepository personneRepository,  BilletterieRepository billetterieRepository, BilletterieService billetterieService) {
         this.billetRepository = billetRepository;
         this.personneRepository = personneRepository;
+		this.billetterieRepository = billetterieRepository;
 		this.billetterieService = billetterieService;
     }
 
@@ -63,25 +64,30 @@ public class BilletService {
 		Billet billetAModifier = findBilletById(uuid);
 
 		if(billetAModifier != null) {
-			// Récupérer la personne à partir de son UUID
-			Personne personne = personneRepository.findOneByUuid(billet.getPersonne().getUuid())
-					.orElseThrow(() -> new IllegalArgumentException("La personne spécifiée n'existe pas"));
 
-			// Vérifier si le solde de la personne est suffisant
-			Float soldeRestant = personne.getSolde() - billet.getPrix();
-			if (soldeRestant < 0) {
-				throw new IllegalArgumentException("Le solde de la personne est insuffisant pour acheter ce billet");
+			if(billet.getPersonne() != null){
+				// Récupérer la personne à partir de son UUID
+				Personne personne = personneRepository.findOneByUuid(billet.getPersonne().getUuid())
+				.orElseThrow(() -> new IllegalArgumentException("La personne spécifiée n'existe pas"));
+
+				// Vérifier si le solde de la personne est suffisant
+				Float soldeRestant = personne.getSolde() - billetAModifier.getPrix();
+				if (soldeRestant < 0) {
+					throw new IllegalArgumentException("Le solde de la personne est insuffisant pour acheter ce billet");
+				}
+
+				// Déduire le prix du billet du solde de la personne
+				personne.setSolde(soldeRestant);
+				personneRepository.save(personne);
+				billetAModifier.setPersonne(personne);
+
+				//Supprimer le billet de la billetterie car vendu
+				billetAModifier.setBilletterie(null);
 			}
-
-			// Déduire le prix du billet du solde de la personne
-			personne.setSolde(soldeRestant);
-			personneRepository.save(personne);
-
+			
 			billetAModifier.setDateValidite(billet.getDateValidite());
 			billetAModifier.setPrix(billet.getPrix());
 			billetAModifier.setEpreuve(billet.getEpreuve());
-			billetAModifier.setPersonne(personne);
-			billetAModifier.setBilletterie(billet.getBilletterie());
 			billetRepository.save(billetAModifier);
 			return true;
 		}
@@ -92,6 +98,28 @@ public class BilletService {
 		Billet billetAModifier = findBilletById(uuid);
 
 		if(billetAModifier != null) {
+
+			if(billet.getPersonne() != null){
+				// Récupérer la personne à partir de son UUID
+				Personne personne = personneRepository.findOneByUuid(billet.getPersonne().getUuid())
+					.orElseThrow(() -> new IllegalArgumentException("La personne spécifiée n'existe pas"));
+
+				// Vérifier si le solde de la personne est suffisant
+				Float soldeRestant = personne.getSolde() - billetAModifier.getPrix();
+				if (soldeRestant < 0) {
+					throw new IllegalArgumentException("Le solde de la personne est insuffisant pour acheter ce billet");
+				}
+
+				// Déduire le prix du billet du solde de la personne
+				personne.setSolde(soldeRestant);
+				personneRepository.save(personne);
+				if(billet.getPersonne() != null) {
+					billetAModifier.setPersonne(personne);
+				}
+
+				//Supprimer le billet de la billetterie car vendu
+				billetAModifier.setBilletterie(null);
+			}
 			if(billet.getDateValidite() != null) {
 				billetAModifier.setDateValidite(billet.getDateValidite());
 			}
@@ -100,12 +128,6 @@ public class BilletService {
 			}
 			if(billet.getEpreuve() != null) {
 				billetAModifier.setEpreuve(billet.getEpreuve());
-			}
-			if(billet.getPersonne() != null) {
-				billetAModifier.setPersonne(billet.getPersonne());
-			}
-			if(billet.getBilletterie() != null) {
-				billetAModifier.setBilletterie(billet.getBilletterie());
 			}
 			billetRepository.save(billetAModifier);
 			return true;

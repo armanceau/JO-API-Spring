@@ -3,8 +3,6 @@ package com.efrei.JO.model;
 import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
-import java.util.HashSet;
-import java.util.Set;
 
 @Entity
 public class Billetterie {

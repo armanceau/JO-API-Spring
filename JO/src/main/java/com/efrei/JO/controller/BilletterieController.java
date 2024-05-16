@@ -1,6 +1,7 @@
 package com.efrei.JO.controller;
 
 import com.efrei.JO.dto.CreateBilletterie;
+import com.efrei.JO.dto.UpdateBilletterie;
 import com.efrei.JO.model.Billetterie;
 import com.efrei.JO.service.BilletterieService;
 import jakarta.validation.Valid;
@@ -56,25 +57,25 @@ public class BilletterieController {
 		return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 	}
 
-	// @PutMapping("/{uuid}")
-	// public ResponseEntity<?> mettreAJourTotalement(
-	// 		@PathVariable String uuid,
-	// 		@RequestBody UpdateStade stade) {
-	// 	boolean isUpdated = service.update(uuid, stade);
-	// 	if(isUpdated) {
-	// 		return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-	// 	}
-	// 	return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-	// }
+	@PutMapping("/{uuid}")
+	public ResponseEntity<?> mettreAJourTotalement(
+			@PathVariable String uuid,
+			@RequestBody UpdateBilletterie billetterie) {
+		boolean isUpdated = service.update(uuid, billetterie);
+		if(isUpdated) {
+			return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+		}
+		return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+	}
 
-	// @PatchMapping("/{uuid}")
-	// public ResponseEntity<?> mettreAjourPartiellement(
-	// 		@PathVariable String uuid,
-	// 		@RequestBody UpdateStade stade) {
-	// 	boolean isUpdated = service.updatePartielle(uuid, stade);
-	// 	if(isUpdated) {
-	// 		return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-	// 	}
-	// 	return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-	// }
+	@PatchMapping("/{uuid}")
+	public ResponseEntity<?> mettreAjourPartiellement(
+			@PathVariable String uuid,
+			@RequestBody UpdateBilletterie billetterie) {
+		boolean isUpdated = service.updatePartielle(uuid, billetterie);
+		if(isUpdated) {
+			return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+		}
+		return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+	}
 }

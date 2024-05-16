@@ -1,6 +1,7 @@
 package com.efrei.JO.service;
 
 import com.efrei.JO.dto.CreateBilletterie;
+import com.efrei.JO.dto.UpdateBilletterie;
 //import com.efrei.JO.dto.UpdateBilletterie;
 import com.efrei.JO.model.Billetterie;
 import com.efrei.JO.repository.BilletterieRepository;
@@ -50,33 +51,25 @@ public class BilletterieService {
 		return false;
 	}
 
-	// public boolean update(String uuid, UpdateEpreuve epreuve) {
-	// 	Epreuve epreuveAModifier = findEpreuveById(uuid);
-	// 	if(epreuveAModifier != null) {
-	// 		epreuveAModifier.setName(epreuve.getName());
-	// 		epreuveAModifier.setDate(epreuve.getDate());
-	// 		epreuveAModifier.setStade(epreuve.getStade());
-	// 		repository.save(epreuveAModifier);
-	// 		return true;
-	// 	}
-	// 	return false;
-	// }
+	public boolean update(String uuid, UpdateBilletterie billetterie) {
+		Billetterie billetterieAModifier = findBilletterieById(uuid);
+		if(billetterieAModifier != null) {
+			billetterieAModifier.setName(billetterie.getName());
+			repository.save(billetterieAModifier);
+			return true;
+		}
+		return false;
+	}
 
-	// public boolean updatePartielle(String uuid, UpdateEpreuve epreuve) {
-	// 	Epreuve epreuveAModifier = findEpreuveById(uuid);
-	// 	if(epreuveAModifier != null) {
-	// 		if(epreuve.getName() != null) {
-	// 			epreuveAModifier.setName(epreuve.getName());
-	// 		}
-	// 		if(epreuve.getDate() != null) {
-	// 			epreuveAModifier.setDate(epreuve.getDate());
-	// 		}
-	// 		if(epreuve.getStade() != null) {
-	// 			epreuveAModifier.setStade(epreuve.getStade());
-	// 		}
-	// 		repository.save(epreuveAModifier);
-	// 		return true;
-	// 	}
-	// 	return false;
-	// }
+	public boolean updatePartielle(String uuid, UpdateBilletterie billetterie) {
+		Billetterie billetterieAModifier = findBilletterieById(uuid);
+		if(billetterieAModifier != null) {
+			if(billetterie.getName() != null) {
+				billetterieAModifier.setName(billetterie.getName());
+			}
+			repository.save(billetterieAModifier);
+			return true;
+		}
+		return false;
+	}
 }

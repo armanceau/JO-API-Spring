@@ -12,7 +12,6 @@ public class UpdateBillet {
 	private Personne personne;
 	private Billetterie billetterie;
 
-
 	public UpdateBillet(Float prix, LocalDate dateValidite, Epreuve epreuve, Personne personne, Billetterie billetterie) {
 		this.prix = prix;
 		this.dateValidite = dateValidite;
