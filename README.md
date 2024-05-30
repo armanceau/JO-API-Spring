@@ -1,7 +1,8 @@
 
 # JO-API-Spring
 
-A brief description of what this project does and who it's for
+Api de billetterie des JO, un utilisateur peut se connecter/créer un compte. Il est nécesssaire d'avoir un solde suffisant afin de pouvoir acheter un billet dans une des billetteries. 
+Chaque épreuve se passe dans un stade définit à une certaine date, le ticket n'est plus valide du moment que la date de l'épreuve est dépassée.
 
 
 ## API Reference
